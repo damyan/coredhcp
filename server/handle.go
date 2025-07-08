@@ -34,6 +34,7 @@ func (l *listener6) HandleMsg6(buf []byte, oob *ipv6.ControlMessage, peer *net.U
 		log.Warningf("DHCPv6: cannot get inner message: %v", err)
 		return
 	}
+	log.Debugf("Handling DHCPv6 request: %s", msg.Summary())
 
 	// Create a suitable basic response packet
 	var resp dhcpv6.DHCPv6
