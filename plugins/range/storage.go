@@ -10,11 +10,11 @@ import (
 	"fmt"
 	"net"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 func loadDB(path string) (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", fmt.Sprintf("file:%s", path))
+	db, err := sql.Open("sqlite", fmt.Sprintf("file:%s", path))
 	if err != nil {
 		return nil, fmt.Errorf("failed to open database (%T): %w", err, err)
 	}
